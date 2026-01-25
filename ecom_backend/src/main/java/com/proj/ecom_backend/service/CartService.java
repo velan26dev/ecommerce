@@ -1,0 +1,83 @@
+package com.proj.ecom_backend.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.proj.ecom_backend.entity.Cart;
+import com.proj.ecom_backend.entity.CartItem;
+import com.proj.ecom_backend.entity.Product;
+import com.proj.ecom_backend.entity.User;
+import com.proj.ecom_backend.repository.CartItemRepository;
+import com.proj.ecom_backend.repository.CartRepository;
+import com.proj.ecom_backend.repository.ProductRepository;
+import com.proj.ecom_backend.repository.UserRepository;
+
+@Service
+@Transactional
+public class CartService {
+
+	@Autowired
+	private UserRepository userRepo;
+
+	@Autowired
+	private ProductRepository productRepo;
+
+	@Autowired
+	private CartRepository cartRepo;
+
+	@Autowired
+	private CartItemRepository cartItemRepo;
+
+	public void addToCart(String userEmail, Long productId, int quantity) {
+
+		User user = userRepo.findByEmail(userEmail).orElseThrow(() -> new RuntimeException("User not found"));
+
+		Cart cart = cartRepo.findByUser(user).orElseGet(() -> {
+			Cart newCart = new Cart();
+			newCart.setUser(user);
+			return cartRepo.save(newCart);
+		});
+
+		Product product = productRepo.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
+
+		CartItem cartItem = cartItemRepo.findByCartAndProduct(cart, product).orElse(null);
+
+		if (cartItem == null) {
+			cartItem = new CartItem();
+			cartItem.setCart(cart);
+			cartItem.setProduct(product);
+			cartItem.setQuantity(quantity);
+			cartItem.setPrice(product.getPrice());
+		} else {
+			cartItem.setQuantity(cartItem.getQuantity() + quantity);
+		}
+
+		cartItemRepo.save(cartItem);
+	}
+
+	public void removeFromCart(String userEmail, Long productId) {
+
+		User user = userRepo.findByEmail(userEmail).orElseThrow(() -> new RuntimeException("User not found"));
+
+		Cart cart = cartRepo.findByUser(user).orElseThrow(() -> new RuntimeException("Cart not found"));
+
+		Product product = productRepo.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
+
+		CartItem cartItem = cartItemRepo.findByCartAndProduct(cart, product)
+				.orElseThrow(() -> new RuntimeException("CartItem not found"));
+		
+		cartItemRepo.delete(cartItem);
+	}
+	
+	public List<CartItem> getCartItems(String userEmail){
+		
+		User user = userRepo.findByEmail(userEmail).orElseThrow(()-> new RuntimeException("User not found"));
+		
+		Cart cart = cartRepo.findByUser(user).orElseThrow(() -> new RuntimeException("Cart not found"));
+
+		return cartItemRepo.findByCart(cart);
+	}
+}
