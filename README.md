@@ -32,7 +32,7 @@ JPA/Hibernate → MySQL Database
 
 ### 🔹 Backend
 
--   Java 17+
+-   Java 21+
 -   Spring Boot
 -   Spring Security
 -   JWT Authentication
@@ -52,7 +52,7 @@ JPA/Hibernate → MySQL Database
 
 -   Git & GitHub
 -   Postman
--   IntelliJ / VS Code
+-   Eclipse / VS Code
 
 ------------------------------------------------------------------------
 
@@ -87,8 +87,8 @@ JPA/Hibernate → MySQL Database
 
 ### Authentication
 
-POST /api/auth/register\
-POST /api/auth/login
+POST /auth/register\
+POST /auth/login
 
 ### Product
 
@@ -100,16 +100,17 @@ DELETE /api/product/{id}
 ### Cart
 
 POST /api/cart/{productId}/{quantity}\
-DELETE /api/cart/{productId}
+DELETE /api/cart/{productId}\
+GET /api/cart
 
 ------------------------------------------------------------------------
 
 ## 🗄 Database Tables
 
--   Users\
--   Roles\
--   Products\
+-   User
+-   Product
 -   Cart
+-   Order
 
 ------------------------------------------------------------------------
 
@@ -117,7 +118,7 @@ DELETE /api/cart/{productId}
 
 ### 1️⃣ Clone Repository
 
-git clone https://github.com/yourusername/ecommerce-project.git
+git clone https://github.com/velan26dev/ecommerce.git
 
 ### 2️⃣ Backend Setup
 
@@ -136,20 +137,20 @@ Frontend runs at: http://localhost:5173
 
 ## 🧠 Key Learning Outcomes
 
--   Implemented JWT authentication with Spring Security\
--   Designed scalable REST APIs\
--   Integrated frontend and backend using Axios\
--   Handled cart synchronization issues\
+-   Implemented JWT authentication with Spring Security
+-   Designed scalable REST APIs
+-   Integrated frontend and backend using Axios
+-   Handled cart synchronization issues
 -   Applied layered architecture principles
 
 ------------------------------------------------------------------------
 
 ## 🚀 Future Enhancements
 
--   Payment Gateway Integration\
--   Order History Module\
--   Cloud Image Storage\
--   Docker Deployment\
+-   Payment Gateway Integration
+-   Order History Module
+-   Cloud Image Storage
+-   Docker Deployment
 -   CI/CD Pipeline
 
 ------------------------------------------------------------------------
@@ -159,8 +160,8 @@ Frontend runs at: http://localhost:5173
 **Velan K**\
 Java Full Stack Developer
 
-LinkedIn: (Add your link)\
-GitHub: https://github.com/yourusername
+LinkedIn: www.linkedin.com/in/velan-k \
+GitHub: https://github.com/velan26dev
 
 ------------------------------------------------------------------------
 
