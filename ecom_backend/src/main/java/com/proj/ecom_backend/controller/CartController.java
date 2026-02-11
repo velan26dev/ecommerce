@@ -1,5 +1,6 @@
 package com.proj.ecom_backend.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +23,21 @@ public class CartController {
 	@Autowired
 	private CartService cartServ;
 	
-	@PostMapping("/{userEmail}/{productId}/{quantity}")
-	public void addToCart(@PathVariable String userEmail,@PathVariable Long productId,@PathVariable int quantity) {
+	@PostMapping("/{productId}/{quantity}")
+	public void addToCart(@PathVariable Long productId,@PathVariable int quantity,Principal principal) {
+		String userEmail = principal.getName();
 		cartServ.addToCart(userEmail, productId, quantity);
 	}
 	
-	@DeleteMapping("/{userEmail}/{productId}")
-	public void removeFromCart(@PathVariable String userEmail,@PathVariable Long productId) {
+	@DeleteMapping("/{productId}")
+	public void removeFromCart(@PathVariable Long productId,Principal principal) {
+		String userEmail = principal.getName();
 		cartServ.removeFromCart(userEmail, productId);
 	}
 	
-	@GetMapping("/{userEmail}")
-	public List<CartItem> getCartItems(@PathVariable String userEmail){
+	@GetMapping()
+	public List<CartItem> getCartItems(Principal principal){
+		String userEmail = principal.getName();
 		return cartServ.getCartItems(userEmail);
 	}
 }

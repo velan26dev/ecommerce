@@ -1,2 +1,3 @@
-2026/01/25-14:21:18.783 63f4 Creating DB C:\Users\velan\Desktop\Ecommerce\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB since it was missing.
-2026/01/25-14:21:18.791 63f4 Reusing MANIFEST C:\Users\velan\Desktop\Ecommerce\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
+2026/02/10-19:27:19.801 3b38 Reusing MANIFEST C:\Users\velan\Desktop\Ecommerce\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
+2026/02/10-19:27:19.803 3b38 Recovering log #3
+2026/02/10-19:27:19.803 3b38 Reusing old log C:\Users\velan\Desktop\Ecommerce\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Sync Data\LevelDB/000003.log 

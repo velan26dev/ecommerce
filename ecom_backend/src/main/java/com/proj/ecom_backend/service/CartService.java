@@ -56,6 +56,7 @@ public class CartService {
 		}
 
 		cartItemRepo.save(cartItem);
+		
 	}
 
 	public void removeFromCart(String userEmail, Long productId) {

@@ -1,2 +1,3 @@
-2026/01/25-14:21:18.808 41a4 Creating DB C:\Users\velan\Desktop\Ecommerce\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db since it was missing.
-2026/01/25-14:21:18.812 41a4 Reusing MANIFEST C:\Users\velan\Desktop\Ecommerce\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db/MANIFEST-000001
+2026/02/10-19:27:19.829 4b40 Reusing MANIFEST C:\Users\velan\Desktop\Ecommerce\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db/MANIFEST-000001
+2026/02/10-19:27:19.829 4b40 Recovering log #3
+2026/02/10-19:27:19.830 4b40 Reusing old log C:\Users\velan\Desktop\Ecommerce\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\shared_proto_db/000003.log 

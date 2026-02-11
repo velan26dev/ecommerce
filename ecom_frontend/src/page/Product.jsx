@@ -18,6 +18,11 @@ const Product = () => {
     }
   };
 
+  const cart = async() => {
+    await api.post(`/api/cart/${id}/${quantity}`);
+    setQuantity(1);
+  }
+
   useEffect(() => {
     let loadProduct = async () => {
       let { data } = await api.get(`/api/product/${id}`);
@@ -58,7 +63,7 @@ const Product = () => {
                 +
               </button>
             </div>
-            <button className={`${style.prod} ${style.cart}`}>
+            <button className={`${style.prod} ${style.cart}`} onClick={cart}>
               ADD TO CART
             </button>
           </div>
